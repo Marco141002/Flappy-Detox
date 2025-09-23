@@ -63,10 +63,15 @@ with poseMp.Pose(static_image_mode=False, min_detection_confidence=0.5, min_trac
         # convertimos la imagen rgb a bgr
         image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
 
-        drawingMp.draw_landmarks(image,results.pose_landmarks,poseMp.POSE_CONNECTIONS,landmark_drawing_spec=mp_drawing_styles.get_default_pose_landmarks_style())
-        #*************************************
-        flappy(results.pose_landmarks,image)
-        #*************************************
+        if results.pose_landmarks is not None:
+            drawingMp.draw_landmarks(
+                image,
+                results.pose_landmarks,
+                poseMp.POSE_CONNECTIONS,
+                landmark_drawing_spec=mp_drawing_styles.get_default_pose_landmarks_style())
+            #*************************************
+            flappy(results.pose_landmarks,image)
+            #*************************************
 
         # Voltee la imagen horizontalmente para obtener una vista de selfie.
         cv2.imshow('MediaPipeJHR', cv2.flip(image, 1))
