@@ -42,9 +42,7 @@ def flappy(pose_landmarks, image):
     posAla2 = int(pose_landmarks.landmark[poseMp.PoseLandmark.LEFT_INDEX].y * height)
     fly(posAla1,posAla2,image,posLine1Y,posLine2Y)
 
-with poseMp.Pose(static_image_mode=False,
-                   min_detection_confidence=0.5,
-                 min_tracking_confidence=0.5) as pose:
+with poseMp.Pose(static_image_mode=False, min_detection_confidence=0.5, min_tracking_confidence=0.5) as pose:
     # mientras la camara este en ejecucion
     while cap.isOpened():
         # guardamos en la variable succes el estado de la captura y en image la captura
