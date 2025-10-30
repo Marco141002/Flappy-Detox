@@ -2,6 +2,7 @@
 import mediapipe as mp
 import cv2
 import keyboard
+import mouse
 
 # inicializamos la clase Hands y almacenarla en una variable
 poseMp = mp.solutions.pose
@@ -28,7 +29,8 @@ def fly(posAla1, posAla2, image, posLine1Y, posLine2Y):
     if posLine1Y>posAla1 and posLine2Y>posAla2 and flystate:
         print("vuela")
         flystate = False
-        keyboard.press_and_release("space")
+        mouse.click('left')
+        #keyboard.press_and_release("space")
     else:
         if posLine1Y < posAla1 and posLine2Y < posAla2 and flystate == False:
             print("no vuela")
