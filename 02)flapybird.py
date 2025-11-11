@@ -35,6 +35,7 @@ def fly(posAla1, posAla2, image, posLine1Y, posLine2Y):
         if posLine1Y < posAla1 and posLine2Y < posAla2 and flystate == False:
             print("no vuela")
             flystate = True
+            mouse.click('left')
 
 def flappy(pose_landmarks, image):
     posLine1Y = int(pose_landmarks.landmark[poseMp.PoseLandmark.RIGHT_SHOULDER].y*height)
