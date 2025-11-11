@@ -59,7 +59,6 @@ with poseMp.Pose(static_image_mode=False, min_detection_confidence=0.5, min_trac
             # return height, width and channels
             height, width, _ = image.shape
             print(height, width)
-            print ("holi")
         # convertimos la imagen de bgr a rgb debido a que la funcion hands process acepta rgb
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         # Procesa una imagen RGB y devuelve los puntos de referencia de la mano y la destreza de cada mano detectada
